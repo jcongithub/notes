@@ -1,4 +1,13 @@
 1. Reset index to other columns
 DataFrame.set_index(keys, drop=True, append=False, inplace=False, verify_integrity=False)
 2. select rows
->earnings[earnings['symbol']=='FB'] #select * from earnings where symbol = 'FB'
+#select * from earnings where symbol = 'FB'
+>earnings[earnings['symbol']=='FB'] 
+>earnings.loc[earnings['symbol']=='FB']
+
+3. Underscore _
+#For storing the value of last expression in interpreter
+#For ignoring the specific values. (so-called “I don’t care”)
+#To give special meanings and functions to name of vartiables or functions.
+#To use as ‘Internationalization(i18n)’ or ‘Localization(l10n)’ functions.
+#To separate the digits of number literal value.
