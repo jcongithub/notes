@@ -28,3 +28,6 @@ https://docs.python.org/2/reference/datamodel.html
 >del dfnew['Internet domain']
 >dfnew.drop(['Internet domain'], axis=1, inplace=True)
 
+8. Update column
+>a['date'] = a.apply(lambda row : datetime.strptime(row['date'], '%Y%m%d %I%p'), axis=1)
+
