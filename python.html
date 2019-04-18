@@ -4,6 +4,8 @@ DataFrame.set_index(keys, drop=True, append=False, inplace=False, verify_integri
 #select * from earnings where symbol = 'FB'
 >earnings[earnings['symbol']=='FB'] 
 >earnings.loc[earnings['symbol']=='FB']
+>earnings[earnings['date'] > '20190401'].sort_values(by=['date']).groupby('symbol').head(2).sort_values(by=['symbol', 'date'])
+
 
 3. Underscore _
 #For storing the value of last expression in interpreter
@@ -12,6 +14,17 @@ DataFrame.set_index(keys, drop=True, append=False, inplace=False, verify_integri
 #To use as ‘Internationalization(i18n)’ or ‘Localization(l10n)’ functions.
 #To separate the digits of number literal value.
 
-3. operator overwrite
+4. operator overwrite
 https://docs.python.org/2/reference/datamodel.html
 [] -> __getitem__()
+
+5. Rename a column name
+>df.rename(columns={'popu': 'population'}) #rename 'popu' to 'population'
+
+6. Add column
+>dfnew['capital city'] = ['Rome','Madrid','Athens','Paris','Lisbon'] #number values should eqaul to number of rows
+
+7. Delete column
+>del dfnew['Internet domain']
+>dfnew.drop(['Internet domain'], axis=1, inplace=True)
+
