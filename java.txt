@@ -1,1 +1,62 @@
 
+Java Collection Framework
+
+Concurrent Collections
+- In multithreading context
+  - ConcurrentHashMap preferable synchronized HashMap
+  - ConcurrentSkipListMap preferable synchronized TreeMap
+  - CopyOnWriteArrayList preferable sychronized ArrayList
+  - ConcurrentSkipListSet preferable sychronized TreeSet
+- "Concurrent" collections vs "sychronized" collections
+  - "weakly consistent" iterator vs "fast-fail" iterator 
+    - doesn't throw ConcurrentModificationException
+    - they are guaranteed to traverse elements as they existed upon construction exactly once, and may (but are not guaranteed to) reflect any modifications subsequent to construction.
+    - they may proceed concurrently with other operations
+  - "Concurrent" collections doesn't use a single exclusion lock.
+  -
+
+
+Set 
+- no duplicate elements, no order(cannot access by index)
+- HashSet - based on HashMap
+- LinkedHashSet - maintain the insertion order, iteration order is same as the insertion order
+- TreeSet - elements are ordered based on their natural ordering or by a Comparator provided at set creation time
+- EnumSet
+- CopyOnWriteArraySet
+  - best suited for: small number of elements, much more read than update and need to prevent interference among threads during traversal
+  - thread-safe
+  - update operations are expensive since they usually entail copying the entire underlying array
+  - iterator don't support the "remove" operation
+  - Traversal via ierators is fast and cannot encounter inerference from other threads. Iterators rely in unchanging snapshots of the array at the time the iterators were constructed
+- ConcurrentSkipListSet
+  - elements are ordered based on their natural ordering or by a Comparator provided at set creation time
+  - Insertion, removal, and access operations safely execute concurrently by multiple threads
+  - the bulk operations addAll, removeAll, retainAll, containsAll, equals, and toArray are not guaranteed to be performed atomically. For example, an iterator operating concurrently with an addAll operation might view only some of the added elements.
+  - 
+
+List - ordered collection, duplicates are generally permistted, allow positional access (by index)
+- ArrayList
+- LinkedList
+- CopyOnWriteArrayList
+- Vector - synchronized
+- Stack - last-in-first-out(LIFO). It is prefer to use Deque instead of Stack
+
+Queue
+- [add(e), remove() and element()] throws excpeion 
+- [offer(e), poll(), peek()] returns null if cannot performace the operations
+- element() and peek() return the head element, but not remove it
+- PriorityQueue: a priority heap. THe elements are ordered according to their narural ordering or by a Comparator provided the construction time.
+- Deque interface: supports insertion and removal at both ends. so it can be used as a "queue" with FIFO behavior or used as a Stack with  LIFO behavior.
+  - addFirst/addLast, removeFirst/removeLast, getFirst/getLast
+  - offerFirst/offerFirst, pollFirst/pollLast, peekFirst/peekLast
+  - used as a queue, add->addLast, offer->offerLast, remove->removeFirst, poll->pollFirst, element->getFirst, peek->peekFirst
+  - used as a Stack: push->addFirst, pop->removeFirst, peek->peekFirst
+
+- BlockingQueue interface
+  - blocking operations, put(e) vs offer(e, timeout, unit), take(e) vs poll(time, unit)
+  - ArrayBlockingQueue, LinkedBlockingQueue, PriorityBlockingQueue, LinkedTransferQueue, SynchronousQueue, LinkedBlockingDeque
+  
+  
+
+
+
