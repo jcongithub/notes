@@ -1,6 +1,55 @@
 
 Java Collection Framework
 
+Multithreading and parallel computing
+  Two good readings
+  - https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
+  - https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html
+  
+- thread creation
+- thread coordination
+- shared data
+  - thread interference error: multiple threads try to update a shared data might cause a unpredicatable value of the shared data
+  - memory consistency error: inconsistent values from different threads 
+- To thread safe
+  - ThreadLocal
+  - Immutable object
+  - Synchronization 
+    - Prevent both thread interference and memory consistency errors using "monitor lock", exclusive locking
+    - Too much synchronization might slow down the performance due to much thread context switch
+    - final field can be read after the object has been constructed without synchronization since it cannot be changed
+    - Forms a happens-before relationship
+    - Reentrant Synchronization is permitted - same thread can acquire a look that it already owns
+    
+    - Thread Contention issue: Deadlock, Starvation and Livelock
+      - Deadlock - happens when mutiple threads wait for each other to release the resource the other owns to continue
+      
+      - Starvation: Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
+      
+      - Livelock: A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work. This is comparable to two people attempting to pass each other in a corridor: Alphonse moves to his left to let Gaston pass, while Gaston moves to his right to let Alphonse pass. Seeing that they are still blocking each other, Alphone moves to his right, while Gaston moves to his left. They're still blocking each other, so...
+      
+  - Memory Consistency
+    - Chapter 17 of the Java Language Specification defines the happens-before relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation happens-before the read operation. The synchronized and volatile constructs, as well as the Thread.start() and Thread.join() methods, can form happens-before relationships
+    
+    
+  - Atomic and volatile
+  - 
+
+
+
+
+
+thread communication by sharing data
+  - it is efficient
+  - two kinds of errors: thread interference and memory consistency errors
+  - memory consistency errors: inconsistent views of shared memory
+  
+  
+  - using synchronization to prevent these errors
+  - synchroniztion can introduc thread contention 
+  
+
+
 Concurrent Collections
 - In multithreading context
   - ConcurrentHashMap preferable synchronized HashMap
