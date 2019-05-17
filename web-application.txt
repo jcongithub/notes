@@ -1,0 +1,8 @@
+AngularJS
+- front-end web framework
+- single-page application
+- model-view-controller and model-view-viewmodel
+
+Spring Boot
+- REST API
+- how many Controller created?
