@@ -2,6 +2,11 @@ AngularJS
 - front-end web framework
 - single-page application
 - model-view-controller and model-view-viewmodel
+- can have multiple modules on the single page
+- Variables created without the keyword "var", are alays global, even if they are created inside a function.
+- JavaScript Closure https://www.w3schools.com/js/js_function_closures.asp
+-
+
 
 Spring Boot
 - REST API
