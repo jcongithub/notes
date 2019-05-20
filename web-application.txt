@@ -5,9 +5,21 @@ AngularJS
 - can have multiple modules on the single page
 - Variables created without the keyword "var", are alays global, even if they are created inside a function.
 - JavaScript Closure https://www.w3schools.com/js/js_function_closures.asp
--
+- Websites
+  - https://www.w3schools.com/angular/default.asp
+  - AngularUI: https://angular-ui.github.io/
+  - UI Bootstrap: https://angular-ui.github.io/bootstrap/
+  - 
 
 
 Spring Boot
 - REST API
 - how many Controller created?
+
+
+Spring Data JPA and Hibernate
+- JPA: Java Persistence API
+- Hibernate Framework: object-relational mapping (ORM) is the programming technique to map application domain model objects to the relational database tables.. Hibernate is an implementation of JPA
+- Spring Data JPA: not a JPA provider. it is a library/framework that adds extra layer of abstraction on the top of JPA provider. Spring Data JPA always requires the JPA provider such as Hibernate
+
+
