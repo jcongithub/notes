@@ -32,3 +32,24 @@ https://docs.python.org/2/reference/datamodel.html
 8. Update column
 >a['date'] = a.apply(lambda row : datetime.strptime(row['date'], '%Y%m%d %I%p'), axis=1)
 
+9. Get columns of a dataframe
+  >list(my_dataframe.columns.values)
+  >list(my_dataframe)
+
+10. Ternary operator
+  >'Yes' if fruit == 'Apple' else 'No'
+
+11. Create an empty DataFrame whith only column name
+	>df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
+
+12. Rename column name
+>df = pd.DataFrame({'$a':[1,2], '$b': [10,20]})
+>df.columns = ['a', 'b']
+
+13. Formmating
+	1. datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+	2. '${:,.2f}'.format(1234.5)
+
+
+
+
