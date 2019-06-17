@@ -1,0 +1,335 @@
+1. Test all feeds which use UPLOAD_FILE
+2. Test AIS upload files
+3. Testthe flag file check in Beta, enable and disable
+4. Test trailer line check, enable and disable
+5. Fix head phone
+
+13736
+
+
+
+Linux commands to check disk space
+df - shows the amount of disk space used and available on Linux file systems
+>df
+>du -a /var | sort -n -r | head -n 10
+
+
+sort file with numberic data in reverse order
+>sort -nr filename.txt
+
+
+
+for f in *.*; do mv "$f" "$(echo "$f" | sed 's/[0-9]*_[0-9]*_[0-9]*_//')"; done
+
+20180615
+1. move waiting time change of uploading file to BroadRidge into Beta
+2. Migrate copy walter's files
+	a) A script to change copy walters' files in Legacy to a special location
+	b) Make a link to link Walter's directory to sdm_walter
+	
+
+
+20180531
+X1. COPY_FILE fix - move sdsm_server into beta  
+X2. vw_fl_audit fix - 
+X3. DEAN Staling handling 
+
+
+
+
+
+
+1. enable all push_file feeds
+2. enable all preprocess feeds
+3. calculate CRC number for "cope file" feeds
+4. 
+
+1.AccessDataExchangeRate.txt
+
+1. fix vw_fl_audit END_EVENT_CODE 
+
+1. Start working on registartion 
+2. Move DISC to CSI
+3. Home work
+4. Albert Math
+5. Buy Car
+6. Timesheet
+7. 529Plan
+8.  
+
+X1. test SEI_NBPOS
+X2. test BS_AUM and BS_TXN
+3. feed_recon failed with fund_run_instance_id = 117478, NBDIS_BBHT
+
+4. REmove Debug log in FilwWatcherRouter and push into Beta
+5. Release SDM Server
+6. Make alert email list change
+7. Config change for AppID montoring
+8. Rollback no DST ftp sites
+9. fix the issue "delete-job sdm-fw-SDM" in dev script
+10. cannot turn on debug level for Cammel
+11. 
+
+
+
+
+
+
+
+
+
+MDM WebService
+1. Get contact
+	http://betapmattr1:8190/mdmwebservice/v1/contactsearch?firstName=A&lastName=C
+2. generateContactMDMID
+	POST http://betapmattr1:8190/mdmwebservice/v1/generateContactMDMID
+
+BrightScorp FTP stie. Must run following command on prodpmattr1 box
+sftp pimco_data@sftp.pimco.brightscope.com
+URI - sftp://sftp.pimco.brightscope.com:22/out?runLoggingLevel=DEBUG&delay=10&initialDelay=1&username=pimco_data&knownHostsFile=/home/jicheng/.ssh/known_hosts&privateKeyFile=/home/jicheng/.ssh/id_dsa&preferredAuthentications=publickey,password&password=?&download=false
+
+
+sftp://betapmstsv.pimco.imswest.sscims.com:22/SDM_DEV?runLoggingLevel=DEBUG&delay=60000&initialDelay=1&knownHostsFile=/home/jicheng/.ssh/known_hosts&username=sdm01&password=$dm123&download=false
+
+IFD FTP Site
+sftp://prodpmsts1.pimco.imswest.sscims.com:22/?runLoggingLevel=DEBUG&delay=200&initialDelay=1&knownHostsFile=/home/svc_funds/.ssh/known_hosts&username=ifds01&password=Ifd$123&download=false
+
+
+run_sdm_java.sh com.pimco.sdm.ftp.camel.CamelTest 'sftp://209.191.158.210:10022/?runLoggingLevel=DEBUG&delay=600&initialDelay=1&knownHostsFile=/home/jicheng/.ssh/known_hosts&username=svpimco&password=888broad&download=false'
+
+
+
+sftp://svpimco:888broad@209.191.158.210/?runLoggingLevel=DEBUG&delay=200&initialDelay=1"
+
+
+
+
+
+ad:c6:80:2d:3a:9d:29:d8:c4:9a:5e:65:06:71:91:f0
+
+
+3. FW enhancement
+	1. support flag file
+	2. make check file size interval configurable
+
+
+20180130
+-1. Call Jason
+2. Switch to Verizon
+-3. Enable PEM in Beta
+4. Finish ML Chapter 2
+-5. Switch DSP FOR files
+6. Disable feeds only used for CSI migration
+7. Finish file integraty check before starting loading file
+8.
+
+1. disable all feeds which either don't have fw_feed or don't any job steps defined
+
+1. clean up feed def
+	1. feeds only have feed code with anything else, disable them
+	2. feeds don't have any job steps, disable them
+	
+
+
+1. deploy/test BFDS_DISTR_ACT in Beta
+2. modify Python script to support recon a file in two envs
+3. two go-live dates
+4. UploadFileFromHoldingAreaToFTPJob
+	1. test shutdown time
+	
+
+
+
+
+1. https://jira/browse/SDM-923
+2. initalize confidential accounts
+3. test bbh_acct_master
+4. https://jira/browse/SDM-965 is there columns are numeric-column?
+5. Manually to load asset and transaction files
+6.
+
+
+
+
+
+1. finish file upload change
+2. schedule a time with Jagadeesh to review
+3. contact accountant for how much to pay myself
+4. read tax bill about S-corp 
+5. vacation plan
+6. start one of coursera class
+7. call SG for rate increase 
+8.
+
+
+
+----tools needed
+1. script import data
+2. webservice testing
+http://localhost:8191/camwebservice/v1/camsearch?camId=10118564 - return empty
+http://localhost:8191/camwebservice/v1/camsearch?camId=10118564&isConfidential=0 - return one
+http://localhost:8191/camwebservice/v1/camdetailsearch?camId=10118564 -- exception 
+http://localhost:8191/camwebservice/v1/camdetailsearch?camId=10118564111 -- no record found
+http://localhost:8191/camwebservice/v1/savecamdetail
+reqJson={"requestId": "131aaf6a-1e76-4cbc-d8ee-e157038ef1", "camDetailSaveRecords": [{"inceptionDate": "2012-09-03T04:00:00.000Z","camId": 10118564,"rowUpdateBy": "pimco\\jicheng","recordNumber": 1,"createFl": 0}]}
+
+
+{requestId: "131aaf6a-1e76-4cbc-d8ee-e157038ef1",…}
+camDetailSaveRecords:[{inceptionDate: "2012-09-03T04:00:00.000Z", camId: 10118564, rowUpdateBy: "pimco\jicheng",…}
+
+
+{"requestId":"8e799895-5a4d-f3d2-0332-ea1cdbef4d","camDetailSaveRecords":[{"inceptionDate":"2017-12-20T08:00:00.000Z","investmentPoolL2Code":"L2BALSH","isActive":1,"rptEnabled":1,"isDeanRollFwdDisabled":0,"sendToCrmEnabled":0,"channelBizOrgCode":"777","reinvDivEnabled":0,"extClientAcctNo":"TEST 1220 014","acctSrcCode":"TRAM","acctNoTypeCode":"ALIAS","primaryReltnMdmId":62620978,"rowInsertBy":"pimco\\mrohella","rowUpdateBy":"pimco\\mrohella","recordNumber":1,"camId":null,"createFl":1,"isAllianzAffiliated":0, "isConfidential":0}]}
+
+
+http://betapmattr1:8191/camwebservice/v1/camsearch?camId=90152214
+http://betapmattr1:8191/camwebservice/v1/camdetailsearch?camId=90152214
+http://devpmattr1:8191/camwebservice/v1/camsearch?camId=90156132
+
+
+
+
+1. call accountant
+2. area rug price information
+3. check how to get appriciation money back 
+4. email roger resume to John
+5. buy car
+
+
+
+1. document last sunday issue
+2. document mdm dup firm records
+3. REgistration population. SOCIAL_CODE
+4. Start Model Id JIRA
+
+7. Review what we need to do for loading the large file 
+8. understand how TXN postload works
+9. Read production support document
+10. Where can I get DBA on-call suport person's number?
+11. 10/13 Release
+	artf205241 : SDM Database - Migrate FUND_INB_OWN.SOCIAL_CODE_XREF
+	artf205087 : SDM Database - Fix the issue of inserting NULL into CAM_OWN.CLIENT_ACCT_REG from CAM_UTIL
+	
+
+
+
+X2. disable all feeds which only have LOAD_FILE step defined
+
+ 
+
+
+
+
+08/19
+1. Call LIA for tomorrow PSAT sample test
+2. Start to study Linear Algebra
+3. Start to study Neural Network
+4. Study Java Stream
+5. Close all unused TeamForge artifacts
+6. Clean up unit test code
+
+
+
+
+
+ 
+08/03
+1. Fix RECORD_ID issue in DST alias files
+2. Move OMNI_PRT_AUM and OMNI_PRT_TXN into production - Need moving metadata and Java code into production
+	1. Move metedata into production first
+	2. Release SDM server code next week
+3. DST_SPLT_FILE archive file after spliting files
+4. What are feeds will go-live first? When?
+Is that possible to turn on all feeds in production
+
+
+
+
+08/03
+X1. Move SDM server into Beta
+X3. Move DST files into Beta
+
+
+
+
+07/10
+#1. Contact insurance to cover electric bill
+#2. Create JIRAs for PUSH FILE, Fix upload production files, DST files process
+#3. Run uploading production files in Dev environment
+4. Set up all PUSH FILE jobs
+5. Start set up loading DST files
+6. Run for Dev-FUND, Prod-Fund and Beta-Fund
+7. Make production file copy to start every 10 minutes in autosys
+8. Retest
+9. Put copy production in BETA
+
+
+
+05/31
+1. Feed match to use MATCH_TYPE(PATTERN, EXACT)
+3. Finish 28 feeds
+4. Check Beta sequence number order
+5. In Dev FTP, files are still archived. Remve "archive flag"
+6. FileWatcher - if file downloade correctly, but failed to instantiate the batch instance. Move file to Errored directory.
+7. OneVue release check
+	1. check FTP setting and if we can noonect to PROD FTP
+	2. Batch settings
+	3. Load tables and sequence number
+	4. attributes
+8. FeedFileUploader don't send "Cannot write new file."
+9. sequence_number out of order?
+10. verify loading file start time and end time are correct in the database
+11. Test if SQL throw exception when loadinf file, is the JOB/JOB STEP block other job? what is the step and job statue?
+12. disable application log goes to standard error
+
+
+
+ 
+
+
+
+
+
+
+
+4. Albert summer camp
+5. Get check book
+6. Fill citizonhiop application
+8. Study numpy module
+9. Start to document all support tips.
+
+#1. Start feeds migration6
+#2. Start preprocess - FTP Push - No needed
+#3. Email steven? -- 5/8
+#7. finish daily recon
+
+
+
+
+
+
+How preprocess works:
+inb_fileloader/perl/file_loader.pl
+inb_fileloader/perl/sdm_server_feed_loader.pl
+inb_fileloader/perl/Manual_feed_loader.pl
+--> FL_preprocess.pm.
+1. PUSH_FILE in production seems not working
+
+
+
+
+
+Java
+Eclipse
+--Disable "suspend execution on uncaught exception"
+	Window->Preferences->Java->Debug>Suspend execution on uncaught exceptions
+
+Python
+1. Install python 3.6.2 64bit
+2. Insatll ipython
+	>pip install ipython[all]
+3. Install PyGithub
+	>pip install PyGithub
+4. Install pyton YouTube
+5. Install Oracle cx_oracle
+	>pip install cx_oracle
+	https://cx-oracle.readthedocs.io/en/latest/
